@@ -22,12 +22,30 @@ elif x == "japanese":
     languages = "japanese"
 show_names(languages)
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
-def types(x):
-    for type in data:
-        print("Choose a type of pokeman: ")
-x = input("Choose a type of pokeman: ")
-if x == "normal":
-    types = "normal"
+types = []
+
+for pokemon in data :
+    for pokemon_type in pokemon["type"]:
+        if pokemon_type not in types:
+            types.append(pokemon_type)
+
+print("Pokemon types: ")
+for pokemon_type in types:
+    print(pokemon_type)
+
+choice = input("CHoose a Pokemon type: ").strip().lower()
+found = False
+
+for pokemon in data:
+    for pokemon_type in pokemon["type"]:
+        if pokemon_type.lower() == choice:
+            print(pokemon["name"]["english"])
+            found = True 
+            break
+
+if found == False:
+    print("No pokemon of that type!")
+
 
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 
