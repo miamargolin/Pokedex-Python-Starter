@@ -33,7 +33,7 @@ print("Pokemon types: ")
 for pokemon_type in types:
     print(pokemon_type)
 
-choice = input("CHoose a Pokemon type: ").strip().lower()
+choice = input("Choose a Pokemon type: ").strip().lower()
 found = False
 
 for pokemon in data:
@@ -45,9 +45,8 @@ for pokemon in data:
 
 if found == False:
     print("No pokemon of that type!")
-
-
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
+
 
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
