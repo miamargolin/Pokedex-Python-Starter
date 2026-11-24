@@ -64,4 +64,4 @@ if found == False:
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
 
-6767676767676767676767676767676767
+     
