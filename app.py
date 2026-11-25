@@ -6,7 +6,7 @@ data = json.load(pokedex)
 
 
 # Create a function that will take the data from the JSON file and you will iterate through the list of pokemon and print each pokemons name.
-""" def show_names(x):
+def show_names(x):
     for pokemon in data:
         print(pokemon["name"][languages])        
 # Add a language choice feature and print the pokemons name based on the user input
@@ -44,7 +44,7 @@ for pokemon in data:
             break
 
 if found == False:
-    print("No pokemon of that type!") """
+    print("No pokemon of that type!")
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 
 
@@ -63,5 +63,37 @@ if found == False:
 
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
+moves_file = open("moves.json", encoding= "utf8")
+moves = json.load(moves_file)
+moves_file.close()
 
-     
+def find_moves():
+    search = input("Enter a Pokemon's name: ").strip().lower()
+    chosen_pokemon = None
+
+    for pokemon in data:
+        name = pokemon["name"]["english"]
+
+        if name.lower() == search:
+            chosen_pokemon = pokemon
+            break
+
+    if chosen_pokemon == None:
+        print("Pokemon not found. Check the spelling.")
+        return
+
+    pokemon_types = chosen_pokemon["type"]
+
+    print("Pokemon types:", pokemon_types)
+    print ("Moves with matching types: ")
+
+    found = False 
+
+    for move in moves:
+        if move ["type"] in pokemon_types:
+            print(move["ename"], "-", move["type"])
+
+    if found == False:
+        print("No matching moves were found.")
+
+find_moves()
